@@ -1,2 +1,4 @@
 # LearningTools
-Self-used training tools for each step
+自用的模型训练工具，按照个人习惯增加必须的检查项
+持续施工中
+
