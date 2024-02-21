@@ -63,14 +63,14 @@ class TrainLoop:
                     writer.add_scalar('Loss/{}'.format(self.step+self.resume_step), epoch_loss, epoch)
                     # check! record learning rate，check if lr is too close to zero
                     current_lr = self.opt.param_groups[0]['lr']
-                    writer.add_scalars("learning_rate", {'lr': current_lr}, self.step)
+                    writer.add_scalars("learning_rate", {'lr': current_lr}, self.step+self.resume_step)
                 
                 # check！check valid loss, use for early stop
                 if self.step % 5000 == 0:
                     self.model.eval()
                     val_loss = self.evaluate()
 
-                    writer.add_scalars("losses/losses", {'eval':val_loss}, self.step,)
+                    writer.add_scalars("losses/losses", {'eval':val_loss}, self.step+self.resume_step,)
 
                     if val_loss < self.min_val_loss:
                         # check! record valid result, use for anlysising training state
