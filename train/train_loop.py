@@ -75,7 +75,7 @@ class TrainLoop:
                     if val_loss < self.min_val_loss:
                         # check! record valid result, use for anlysising training state
                         self.evaluate_save()
-                        print('New min valid loss, cur is {}, new is {}, saving the model...'.format(self.min_val_loss, val_loss))
+                        print('New min val loss, cur:{}, new:{}, save model...  cur_train_loss:{}'.format(self.min_val_loss, val_loss, loss))
                         self.save(name='best_val_')
                         self.min_val_loss = val_loss
                     self.model.train()
